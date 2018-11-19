@@ -13,7 +13,7 @@ import {
 
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { userLogin } from "../actions/teachers_actions";
+import { teacherLogin } from "../actions/teachers_actions";
 
 class TeacherAuth extends Component {
   state = {
@@ -25,10 +25,11 @@ class TeacherAuth extends Component {
 
   submitLogin(e) {
     e.preventDefault();
-    console.log(this.state);
+    // console.log(this.state.userLogin);
 
-    this.props.userLogin(this.state.user).then(() => {
-      this.props.history.push("/teacher/1/dashboard");
+    this.props.teacherLogin(this.state.user).then(() => {
+      console.log("this.props", this.props);
+      this.props.history.push(`/teacher/${this.props.userLogin.id}/dashboard`);
     });
   }
 
@@ -39,13 +40,9 @@ class TeacherAuth extends Component {
     });
   }
 
-  toggle() {
-    this.setState({
-      modal: !this.state.modal
-    });
-  }
-
   render() {
+    console.log("is userlogin here?", this.props);
+
     this.updateFormField = this.updateFormField.bind(this);
     return (
       <Container>
@@ -117,12 +114,13 @@ class TeacherAuth extends Component {
 }
 
 const mapDispatchToProps = {
-  userLogin
+  teacherLogin
 };
+const mapStateToProps = ({ userLogin }) => ({ userLogin });
 
 export default withRouter(
   connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
   )(TeacherAuth)
 );

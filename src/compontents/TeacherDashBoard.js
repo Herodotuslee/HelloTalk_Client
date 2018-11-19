@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-// import Course from "./Course";
-// import Calander from "./Calander";
+
 import {
   Button,
   Form,
   FormGroup,
   Label,
   Input,
-  FormText,
   Container,
   Row,
   Col
@@ -15,17 +13,17 @@ import {
 
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import {
   Card,
   CardImg,
   CardText,
   CardBody,
-  CardTitle,
-  CardSubtitle
+  CardTitle
+  // CardSubtitle
   // Button
 } from "reactstrap";
-import Course from "./Course";
+// import Course from "./Course";
 import TeacherDashCourse from "./TeacherDashCourse";
 import Teacher_Calander from "./Teacher_Calendar";
 
@@ -158,11 +156,11 @@ class TeacherDashBoard extends Component {
   }
 }
 
-const mapStateToProps = ({ teacher }, props) => {
+const mapStateToProps = ({ userLogin }, props) => {
+  // console.log(teachers);
   return {
-    teacher: teacher.find(item => {
-      console.log("here", item);
-      return item.id === Number(1);
+    userLogin: Object.values(userLogin).find(item => {
+      return item.id === Number(props.match.params.id);
     })
   };
 };

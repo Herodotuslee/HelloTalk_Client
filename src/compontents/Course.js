@@ -11,12 +11,12 @@ import {
 
 import { Link } from "react-router-dom";
 
-const coursepicstyle = {
-  width: "15em",
-  height: "15em",
-  margintop: "2em",
-  padding: "0em 2em 0em 2em"
-};
+// const coursepicstyle = {
+//   width: "15em",
+//   height: "15em",
+//   margintop: "2em",
+//   padding: "0em 2em 0em 2em"
+// };
 class Course extends Component {
   render() {
     return (
@@ -41,7 +41,7 @@ class Course extends Component {
             <Link
               style={{ marginLeft: `1em` }}
               className="btn btn-secondary"
-              to={`/teacher/${this.props.this_teacher.id}/calendAr`}
+              to={`/teacher/${this.props.this_teacher.id}/calendar`}
             >
               Request Lesson
             </Link>

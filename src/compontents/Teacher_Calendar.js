@@ -24,16 +24,16 @@ class Teacher_Calendar extends Component {
   };
 
   render() {
-    console.log("teacher_info", this.props.teacher);
+    console.log("teacher_info", this.props.teachers);
 
-    if (!this.props.teacher) {
+    if (!this.props.teachers) {
       return <div>The Calander is Loading</div>;
     } else {
       return (
         <Container className="App">
           <Card>
             <CardBody>
-              <CardTitle>{this.props.teacher.name}'s Schedule </CardTitle>
+              <CardTitle>{this.props.teachers.name}'s Schedule </CardTitle>
               <Calendar
                 localizer={localizer}
                 defaultDate={new Date()}
@@ -49,9 +49,9 @@ class Teacher_Calendar extends Component {
   }
 }
 
-const mapStateToProps = ({ teacher }, props) => {
+const mapStateToProps = ({ teachers }, props) => {
   return {
-    teacher: teacher.find(item => {
+    teachers: teachers.find(item => {
       return item.id === Number(props.match.params.id);
     })
   };

@@ -85,11 +85,11 @@ export const updateTeacher = (teacher, id) => dispatch => {
     );
 };
 
-export const userLogin = user => dispatch => {
+export const teacherLogin = user => dispatch => {
   return axios
     .post("http://localhost:8080/sessions/teacher", user)
     .then(data => {
-      console.log("HI");
+      console.log("why");
       dispatch({ type: LOGIN_TEACHER_SUCCESS, payload: data.data });
     })
     .catch(err => {

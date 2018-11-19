@@ -20,8 +20,10 @@ class App extends Component {
           <Switch>
             <Route exact path="/tutors" component={ShowAllTeachers} />
             <Route exact path="/teacher/login" component={TeacherAuth} />
-            <Route exact path="/student/login" component={StudentAuth} />
             <Route exact path="/teacher/:id" component={TeacherDetail} />
+
+            <Route exact path="/student/login" component={StudentAuth} />
+
             <Route
               exact
               path="/teacher/:id/calendar"
@@ -34,7 +36,12 @@ class App extends Component {
             />
             <Route
               exact
-              path="/teacher/1/dashboard"
+              path="/teacher/:id/dashboard"
+              component={TeacherDashBoard}
+            />
+            <Route
+              exact
+              path="/student/:id/dashboard"
               component={TeacherDashBoard}
             />
           </Switch>

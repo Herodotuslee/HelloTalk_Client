@@ -49,9 +49,9 @@ class Student_Calander extends Component {
   }
 }
 
-const mapStateToProps = ({ teacher }, props) => {
+const mapStateToProps = ({ teachers }, props) => {
   return {
-    teacher: teacher.find(item => {
+    teachers: teachers.find(item => {
       return item.id === Number(props.match.params.id);
     })
   };

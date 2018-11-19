@@ -5,7 +5,7 @@ import { Container, Col, Row } from "reactstrap";
 
 class ShowAllTeachers extends Component {
   renderList() {
-    return this.props.teacher.map(item => {
+    return this.props.teachers.map(item => {
       return (
         <Col xs="3">
           <TeacherProfile key={item.id} item={item} />
@@ -14,21 +14,30 @@ class ShowAllTeachers extends Component {
     });
   }
   render() {
-    return (
-      <div>
-        <Container>
-          <Row>{this.renderList()}</Row>
-        </Container>
-      </div>
-    );
+    console.log(this.props.teachers);
+    if (!this.props.teachers) {
+      return <div>All teachers are Loading</div>;
+    } else {
+      return (
+        <div>
+          <Container>
+            <Row>{this.renderList()}</Row>
+          </Container>
+        </div>
+      );
+    }
   }
 }
 
-const mapStateToProps = ({ teacher }) => {
+const mapStateToProps = ({ teachers }) => {
   return {
-    teacher
+    teachers
   };
 };
+
+// const mapStateToProps = state => {
+//   teac;
+// };
 
 export default connect(
   mapStateToProps,

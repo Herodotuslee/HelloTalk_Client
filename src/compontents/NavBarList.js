@@ -21,6 +21,21 @@ export default class NavBarList extends React.Component {
             <NavLink href="/student/1/calender">First Student Calander</NavLink>
           </NavItem>
           <NavItem>
+            <NavLink href="/student/1/dashboard">
+              First Student DashBoard
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="/teacher/1/dashboard">
+              First Teacher DashBoard
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="http://localhost:8080/swagger-ui.html#/">
+              Back End Route
+            </NavLink>
+          </NavItem>
+          <NavItem>
             <NavLink href="/teacher/login">Teacher</NavLink>
           </NavItem>
           <NavItem>

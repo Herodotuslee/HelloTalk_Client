@@ -23,23 +23,23 @@ const divStyle = {
 };
 class TeacherDetail extends Component {
   renderList() {
-    return this.props.teacher.courses.map(item => {
+    return this.props.teachers.courses.map(item => {
       return (
         <Col xs="4">
           <Course
             key={item.id}
             course={item}
-            this_teacher={this.props.teacher}
+            this_teacher={this.props.teachers}
           />
         </Col>
       );
     });
   }
   render() {
-    console.log("Info:", this.props.teacher);
+    console.log("Info:", this.props.teachers);
 
-    if (!this.props.teacher) {
-      return <div>Loading</div>;
+    if (!this.props.teachers) {
+      return <div>The teacher is Loading</div>;
     } else {
       return (
         <Container>
@@ -50,13 +50,13 @@ class TeacherDetail extends Component {
                 style={divStyle}
                 top
                 width="100%"
-                src={this.props.teacher.picture_URL}
+                src={this.props.teachers.picture_URL}
                 alt="Card image cap"
               />
               <CardBody>
-                <CardTitle>{this.props.teacher.name}</CardTitle>
+                <CardTitle>{this.props.teachers.name}</CardTitle>
                 <CardSubtitle>Card subtitle</CardSubtitle>
-                <CardText>{this.props.teacher.introduction}</CardText>
+                <CardText>{this.props.teachers.introduction}</CardText>
               </CardBody>
             </Row>
             <Row>{this.renderList()}</Row>
@@ -67,9 +67,9 @@ class TeacherDetail extends Component {
   }
 }
 
-const mapStateToProps = ({ teacher }, props) => {
+const mapStateToProps = ({ teachers }, props) => {
   return {
-    teacher: teacher.find(item => {
+    teachers: teachers.find(item => {
       return item.id === Number(props.match.params.id);
     })
   };

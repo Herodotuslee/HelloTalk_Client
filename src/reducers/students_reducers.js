@@ -10,7 +10,6 @@ import {
   LOGIN_STUDENT_SUCCESS
 } from "../actions/students_actions";
 
-const initialState = { loggedIn: false, token: localStorage.getItem("token") };
 export default function(state = [], action) {
   switch (action.type) {
     case FETCH_STUDENT_SUCCESS:
