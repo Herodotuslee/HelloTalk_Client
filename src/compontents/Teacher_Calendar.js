@@ -7,7 +7,7 @@ import { Container, Card, CardBody, CardTitle } from "reactstrap";
 import { withRouter } from "react-router-dom";
 const localizer = Calendar.momentLocalizer(moment);
 
-class Calander extends Component {
+class Teacher_Calendar extends Component {
   state = {
     events: [
       {
@@ -27,7 +27,7 @@ class Calander extends Component {
     console.log("teacher_info", this.props.teacher);
 
     if (!this.props.teacher) {
-      return <div>Loading</div>;
+      return <div>The Calander is Loading</div>;
     } else {
       return (
         <Container className="App">
@@ -37,7 +37,7 @@ class Calander extends Component {
               <Calendar
                 localizer={localizer}
                 defaultDate={new Date()}
-                defaultView="month"
+                defaultView="week"
                 events={this.state.events}
                 style={{ height: "100vh" }}
               />
@@ -61,5 +61,5 @@ export default withRouter(
   connect(
     mapStateToProps,
     null
-  )(Calander)
+  )(Teacher_Calendar)
 );

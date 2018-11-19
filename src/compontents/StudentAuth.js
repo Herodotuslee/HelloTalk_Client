@@ -13,11 +13,11 @@ import {
 
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { userLogin } from "../actions/teachers_actions";
+import { studentLogin } from "../actions/students_actions";
 
-class TeacherAuth extends Component {
+class StudentAuth extends Component {
   state = {
-    user: {
+    student: {
       email: "",
       password: ""
     }
@@ -27,15 +27,15 @@ class TeacherAuth extends Component {
     e.preventDefault();
     console.log(this.state);
 
-    this.props.userLogin(this.state.user).then(() => {
+    this.props.studentLogin(this.state.student).then(() => {
       this.props.history.push("/teacher/1/dashboard");
     });
   }
 
   updateFormField(e) {
-    let user = { ...this.state.user, [e.target.name]: e.target.value };
+    let student = { ...this.state.student, [e.target.name]: e.target.value };
     this.setState({
-      user
+      student
     });
   }
 
@@ -117,12 +117,12 @@ class TeacherAuth extends Component {
 }
 
 const mapDispatchToProps = {
-  userLogin
+  studentLogin
 };
 
 export default withRouter(
   connect(
     null,
     mapDispatchToProps
-  )(TeacherAuth)
+  )(StudentAuth)
 );

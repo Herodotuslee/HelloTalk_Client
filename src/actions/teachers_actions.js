@@ -8,6 +8,9 @@ export const DELETE_TEACHER_SUCCESS = "DELETE_TEACHER_SUCCESS";
 export const DELETE_TEACHER_FAILED = "DELETE_TEACHER_FAILED";
 export const UPDATE_TEACHER_SUCCESS = "UPDATE_TEACHER_SUCCESS";
 export const UPDATE_TEACHER_FAILED = "UPDATE_TEACHER_FAILED";
+export const LOGIN_TEACHER_SUCCESS = "LOGIN_TEACHER_SUCCESS";
+export const LOGIN_TEACHER_ERROR = "LOGIN_TEACHER_ERROR";
+
 export const fetchTeacher = () => dispatch => {
   axios
     .get("http://localhost:8080/teacher")
@@ -20,6 +23,24 @@ export const fetchTeacher = () => dispatch => {
     })
     .catch(err => dispatch({ type: FETCH_TEACHER_FAILED, payload: err }));
 };
+
+// export const getAllTransactions = () => dispatch => {
+//   return axios
+//     .get("/transactions", { headers: { token: localStorage.getItem("token") } })
+//     .then(data => {
+//       console.log(data);
+//       dispatch({
+//         type: GET_ALL_TEACHER_SUCCESS,
+//         payload: data.data
+//       });
+//     })
+//     .catch(err => {
+//       dispatch({
+//         type: AUTH_TEACHER_ERROR,
+//         payload: err
+//       });
+//     });
+// };
 
 export const deleteExpense = id => dispatch => {
   axios
@@ -62,4 +83,16 @@ export const updateTeacher = (teacher, id) => dispatch => {
         payload: err
       })
     );
+};
+
+export const userLogin = user => dispatch => {
+  return axios
+    .post("http://localhost:8080/sessions/teacher", user)
+    .then(data => {
+      console.log("HI");
+      dispatch({ type: LOGIN_TEACHER_SUCCESS, payload: data.data });
+    })
+    .catch(err => {
+      dispatch({ type: LOGIN_TEACHER_ERROR, payload: err });
+    });
 };

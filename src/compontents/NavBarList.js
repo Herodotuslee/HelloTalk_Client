@@ -13,18 +13,21 @@ export default class NavBarList extends React.Component {
             <NavLink href="/tutors">Tutors</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/teacher/1/calander">
+            <NavLink href="/teacher/1/calendar">
               First Teacher's Calander
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="#">Student Calander</NavLink>
+            <NavLink href="/student/1/calender">First Student Calander</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="#">LognIn</NavLink>
+            <NavLink href="/teacher/login">Teacher</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="#">SignIn</NavLink>
+            <NavLink href="/student/login">Student</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="/logout">Logout</NavLink>
           </NavItem>
         </Nav>
         <hr />

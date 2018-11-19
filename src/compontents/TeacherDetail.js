@@ -25,7 +25,7 @@ class TeacherDetail extends Component {
   renderList() {
     return this.props.teacher.courses.map(item => {
       return (
-        <Col xs="3">
+        <Col xs="4">
           <Course
             key={item.id}
             course={item}

@@ -11,6 +11,12 @@ import {
 
 import { Link } from "react-router-dom";
 
+const coursepicstyle = {
+  width: "15em",
+  height: "15em",
+  margintop: "2em",
+  padding: "0em 2em 0em 2em"
+};
 class Course extends Component {
   render() {
     return (
@@ -19,7 +25,7 @@ class Course extends Component {
           <CardImg
             top
             width="100%"
-            src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180"
+            src={this.props.course.course_picture}
             alt="Card image cap"
           />
           <CardBody>
@@ -35,7 +41,7 @@ class Course extends Component {
             <Link
               style={{ marginLeft: `1em` }}
               className="btn btn-secondary"
-              to={`/teacher/${this.props.this_teacher.id}/calander`}
+              to={`/teacher/${this.props.this_teacher.id}/calendAr`}
             >
               Request Lesson
             </Link>
